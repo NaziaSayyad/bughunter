@@ -1,7 +1,8 @@
-export default function Admin (){
-    return(
-        <>
-        <h1> Admin Dashboard </h1>
-        </>
-    )
+
+export default function Myposts(){
+  return(
+    <>
+    <h1> My Posts </h1>
+    </>
+  )
 }

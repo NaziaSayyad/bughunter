@@ -1,0 +1,7 @@
+.homelogo {
+  font-size: 30px;
+  cursor: pointer;
+}
+.homelogo:hover {
+  color: blue;
+}
