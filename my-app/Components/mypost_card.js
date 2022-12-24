@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 import { BsHeart, BsChat, BsHeartFill } from "react-icons/bs";
 
-export  default function Postcard ({ data }) {
+export  default function My_postcard ({ data }) {
   const { title, content, image } = data;
   const [like, setLike] = useState(false);
   return (

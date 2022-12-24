@@ -9,7 +9,8 @@ export default async function getuseer (req,res) {
         if (token) {
           const decoded = jwt.decode(token);
           const find_id = decoded.id;
-          let user1 = await userModel.findOne({ _id: find_id });
+          let user1 = await userModel.findOne(
+            { _id: find_id });
           res.send(user1);
         }
       } catch (e) {
