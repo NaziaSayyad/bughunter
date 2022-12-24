@@ -31,7 +31,7 @@ const adduser = () => {
   const toast = useToast();
 
   const [formData, setFormData] = useState(initState);
-  const { name, email, title, content, image, role, password } = formData;
+  const { name, email,   password } = formData;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,12 +41,10 @@ const adduser = () => {
     const payload = {
       name: name,
       email: email,
-      role: role,
-      myposts: [{ title: title, content: content, image: image }],
       password: password,
     };
     console.log(payload);
-    fetch(`http://localhost:3000/api/admin/add`, {
+    fetch(`/api/admin/add`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -110,38 +108,7 @@ const adduser = () => {
                   ></Input>
                 </FormControl>
               </GridItem>
-              <GridItem colSpan={1}>
-                <FormControl>
-                  <FormLabel> Add Post:</FormLabel>
-                  <Input
-                    placeholder="Enter Post's title"
-                    name="title"
-                    variant="outline"
-                    colorScheme={"red"}
-                    value={title}
-                    boxShadow="outline"
-                    onChange={handleChange}
-                  ></Input>
-                  <Input
-                    placeholder="Write the Content"
-                    name="content"
-                    boxShadow="outline"
-                    variant="outline"
-                    colorScheme={"red"}
-                    value={content}
-                    onChange={handleChange}
-                  ></Input>
-                  <Input
-                    placeholder="Enter image url"
-                    name="image"
-                    boxShadow="outline"
-                    variant="outline"
-                    colorScheme={"red"}
-                    value={image}
-                    onChange={handleChange}
-                  ></Input>
-                </FormControl>
-              </GridItem>
+              
               <GridItem colSpan={1}>
                 <FormControl>
                   <FormLabel> Password:</FormLabel>
@@ -155,21 +122,8 @@ const adduser = () => {
                   ></Input>
                 </FormControl>
               </GridItem>
-              <GridItem colSpan={1}>
-                <FormControl>
-                  <FormLabel> Role:</FormLabel>
-                  <Select
-                    name="role"
-                    value={role}
-                    onChange={handleChange}
-                    boxShadow="outline"
-                  >
-                    <option>Type</option>
-                    <option value={"user"}>User</option>
-                    <option value={"admin"}>Admin</option>
-                  </Select>
-                </FormControl>
-              </GridItem>
+
+              
 
               <GridItem colSpan={2}>
                 <Button

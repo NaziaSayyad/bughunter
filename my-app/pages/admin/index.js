@@ -52,11 +52,11 @@ function index({ user }) {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/admin?name=${search}`, {
+    fetch(`/api/admin?name=${search}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
+      }
     })
       .then((res) => res.json())
       .then((res) => {
@@ -67,7 +67,7 @@ function index({ user }) {
 
   const handleDelete = (a, id) => {
     a();
-    fetch(`http://localhost:3000/api/admin/delete/${id}`, {
+    fetch(`/api/admin/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -83,7 +83,7 @@ function index({ user }) {
         });
       })
       .then(() =>
-        fetch(`http://localhost:3000/api/admin`, {
+        fetch(`/api/admin`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -191,7 +191,7 @@ function index({ user }) {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {console.log(data)}
+                  
                   {data.length > 0 &&
                     data.map((el) => {
                       return (
