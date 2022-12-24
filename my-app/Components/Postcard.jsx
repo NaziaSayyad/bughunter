@@ -23,9 +23,10 @@ export  default function Postcard ({ data }) {
       alignItems={"center"}
       mx={"20px"}
       my={"30px"}
+      
     >
-      <Card maxW="xxxl" m={"auto"}>
-        <CardBody>
+      <Card maxW="xxxl" m={"auto"} key={data.id} >
+        <CardBody >
           <Image
             src={image}
             alt="Green double couch with wooden legs"

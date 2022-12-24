@@ -6,7 +6,7 @@ export default function MyPost() {
   const [data, setData] = useState();
    
   function getData() {
-    return fetch("http://localhost:3000/api/posts/getuser", {
+    return fetch("https://my-app-sooty-gamma.vercel.app/api/posts/getuser", {
       headers: {
         authorization: JSON.parse(localStorage.getItem("token")),
       },
@@ -20,7 +20,7 @@ export default function MyPost() {
   useEffect(() => {
     getData();
   }, []);
-
+  
   return (
     <div>
       <Box
@@ -31,7 +31,7 @@ export default function MyPost() {
         <Grid templateColumns={{ base: "repeat(1, 1fr)", xl: "repeat(2,1fr)" }}>
           {data?.map((e, i) => (
             <GridItem>
-              <Postcard key={e.id} data={e} />
+              <Postcard key={i + 1} data={e} />
             </GridItem>
           ))}
         </Grid>
